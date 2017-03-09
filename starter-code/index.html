@@ -5,11 +5,21 @@
     <title>Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendor/styles/normalize.css">
-    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="vendor/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
-
+    <script id="entry-template" type="text/x-handlebars-template">
+      <article data-category="{{this.category}}" data-author="{{this.author}}">
+        <h1>{{this.title}}</h1>
+        <div class="byline">
+          By <address><a href="{{this.authorUrl}}">{{this.author}}</a></address>
+          published <time>{{this.daysAgo}} days ago</time>
+        </div>
+        <section>{{{this.body}}}</section>
+        <a href="#" class="read-on">Read on &rarr;</a>      
+      </article>
+    </script>
     <!--
       TODO: Add a script tag to hold the Handlebars template.
         - Be sure to give it a meaningful id attribute.
@@ -74,7 +84,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- TODO: Include Handlebars.JS from a CDN -->
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
     <script src="scripts/blogArticles.js"></script>
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
